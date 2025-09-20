@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Awareness & Planning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 120%;
+            left: 0;
+            background: #1e293b;
+            padding: 0.8rem 0;
+            border-radius: 8px;
+            min-width: 160px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background: #334155;
+            color: #38bdf8;
+        }
+
+        nav ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn.primary {
+            background: #38bdf8;
+            color: #000;
+        }
+
+        .btn.primary:hover {
+            background: #0ea5e9;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .btn.secondary:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #1d4ed8, #9333ea, #0ea5e9, #22c55e);
+            background-size: 400% 400%;
+            animation: gradient 12s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #facc15;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .cta-btn {
+            padding: 0.9rem 1.6rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .cta-btn.primary {
+            background: #facc15;
+            color: #000;
+            margin-right: 1rem;
+        }
+
+        .cta-btn.primary:hover {
+            background: #fde047;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .cta-btn.secondary:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Trust badges */
+        .trust {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .95rem;
+            color: #e2e8f0;
+        }
+
+        .trust-item span {
+            font-size: 1.2rem;
+        }
+
+        /* Stats cards */
+        .stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 2;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            width: 260px;
+            backdrop-filter: blur(10px);
+            transition: .3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: .5rem;
+            color: #facc15;
+        }
+
+        .stat-card p {
+            font-size: .9rem;
+            color: #f1f5f9;
+        }
+
+        /* Login Modal */
+
+        .modal {
+            display: none;
+            /* hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            /* align/justify kept so when display:flex is applied they center */
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal.open {
+            /* class to show modal as flex */
+            display: flex;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 350px;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+            color: #38bdf8;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .login-btn {
+            background: #38bdf8;
+            color: #000;
+        }
+
+        .login-btn:hover {
+            background: #0ea5e9;
+        }
+
+
+        /* Slide 2 */
+        #awareness-crisis {
+            background: #fff;
+            color: #111;
+            padding: 6rem 8%;
+            text-align: center;
+        }
+
+        #awareness-crisis h2 {
+            font-size: 2.2rem;
+            margin: 1rem 0;
+        }
+
+        #awareness-crisis p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .crisis-layout {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .crisis-layout img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .issues {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .issue {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .issue-icon {
+            padding: 0.6rem;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .issue h3 {
+            margin-bottom: .3rem;
+            font-size: 1.2rem;
+            color: #111;
+        }
+
+        .issue p {
+            color: #444;
+            font-size: .95rem;
+            line-height: 1.5;
+        }
+
+        .red {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .yellow {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .blue {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Slide 3 */
+        #solutions {
+            background: #f1f5f9;
+            color: #111;
+            padding: 6rem 8%;
+            text-align: center;
+        }
+
+        #solutions h2 {
+            font-size: 2.2rem;
+            margin: 1rem 0;
+        }
+
+        #solutions p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .solutions-layout {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .solutions-list {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .solution {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .solution-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .solution h3 {
+            margin-bottom: .3rem;
+            font-size: 1.2rem;
+            color: #111;
+        }
+
+        .solution p {
+            color: #444;
+            font-size: .95rem;
+            line-height: 1.5;
+        }
+
+        .solutions-layout img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Slide 4 */
+        #action-plan {
+            background: #fff;
+            color: #111;
+            padding: 6rem 8%;
+            text-align: center;
+        }
+
+        #action-plan h2 {
+            font-size: 2.2rem;
+            margin: 1rem 0;
+        }
+
+        #action-plan p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .stats-box {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stats-grid div {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .stats-grid strong {
+            color: #16a34a;
+            font-size: 1.3rem;
+        }
+
+        .start-btn {
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            background: #0f172a;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .start-btn:hover {
+            background: #1e293b;
+        }
+
+        /* Slide 5 */
+        #career-assessment {
+            background: #f1f5f9;
+            color: #111;
+            padding: 6rem 8%;
+            text-align: center;
+        }
+
+        #career-assessment h2 {
+            font-size: 2.2rem;
+            margin: 1rem 0;
+        }
+
+        #career-assessment p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .assessment-form {
+            max-width: 700px;
+            margin: 2rem auto;
+            text-align: left;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .assessment-form div {
+            margin-bottom: 1.5rem;
+        }
+
+        .assessment-form label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .assessment-form input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        .submit-btn {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            background: #0f172a;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            background: #1e293b;
+        }
+
+        /* Slide 6 */
+
+        #screenshot-slide {
+            background: #fff;
+            color: #111;
+            padding: 6rem 8%;
+            text-align: center;
+        }
+
+        .dashboard-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .dash-card {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: .3s;
+        }
+
+        .dash-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .dash-card h3 {
+            margin: 1rem 0;
+            color: #111;
+        }
+
+        .dash-card p {
+            color: #444;
+            font-size: .95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">CareerMirror</div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#awareness-crisis">Crisis</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#action-plan">Action Plan</a></li>
+            <li><a href="#career-assessment">Assessment</a></li>
+            <li><a href="#screenshot-slide">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="search-box"><input type="text" placeholder="Search..."></div>
+
+
+            <!-- ✅ Popup trigger buttons -->
+            <button id="openLogin" class="btn secondary">Login</button>
+
+            <button class="btn primary" onclick="openSignup()">Sign Up</button>
+
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- Slide 1: Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Experience Your Future <span>before you choose It</span></h1>
+            <p>From Confusion To Clarity-Discover Your Best Career path And Envision Future of Growth And Balance.</p>
+            <button class="cta-btn primary" onclick="openAssessment()">🚀 Start Free Assessment</button>
+            
+
+            <!-- Trust badges -->
+            <div class="trust">
+                <div class="trust-item"><span>✔</span> 50k+ Students Guided</div>
+                <div class="trust-item"><span>⭐</span> 4.9/5 Average Rating</div>
+                <div class="trust-item"><span>💼</span> 92% Career Success Rate</div>
+            </div>
+        </div>
+
+        <!-- Floating Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3>75%</h3>
+                <p>Feel unprepared for career transitions</p>
+            </div>
+            <div class="stat-card">
+                <h3>60%</h3>
+                <p>Lack access to career counseling</p>
+            </div>
+            <div class="stat-card">
+                <h3>85%</h3>
+                <p>Need structured planning</p>
+            </div>
+            <div class="stat-card">
+                <h3>3.2 yr</h3>
+                <p>Average time to find direction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section id="awareness-crisis">
+        <div style="font-size:3rem;color:#ef4444;">&#9888;</div>
+        <h2>The Career Awareness Crisis</h2>
+        <p>Millions of people are stuck in careers that don't fulfill them or struggling to find their path forward. The
+            lack of accessible career guidance and planning support has created a widespread crisis.</p>
+
+        <div class="crisis-layout">
+            <div style="flex:1;min-width:300px;">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop"
+                    alt="Career confusion">
+            </div>
+            <div class="issues">
+                <div class="issue">
+                    <div class="issue-icon red">&#128200;</div>
+                    <div>
+                        <h3>Declining Career Satisfaction</h3>
+                        <p>Most professionals feel disconnected from their work and unclear about future goals.</p>
+                    </div>
+                </div>
+                <div class="issue">
+                    <div class="issue-icon yellow">&#128100;</div>
+                    <div>
+                        <h3>Limited Access to Guidance</h3>
+                        <p>Career counseling is often expensive and inaccessible for students and professionals.</p>
+                    </div>
+                </div>
+                <div class="issue">
+                    <div class="issue-icon green">&#128218;</div>
+                    <div>
+                        <h3>Awareness Gap</h3>
+                        <p>Many are unaware of emerging opportunities in the evolving job market.</p>
+                    </div>
+                </div>
+                <div class="issue">
+                    <div class="issue-icon blue">&#9889;</div>
+                    <div>
+                        <h3>Rapid Industry Changes</h3>
+                        <p>Technological shifts are making old career paths obsolete faster than ever.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section id="solutions">
+        <div style="font-size:3rem;color:#22c55e;">✔</div>
+        <h2>Comprehensive Career Planning Solutions</h2>
+        <p>We provide accessible, structured, and personalized career guidance to help individuals discover their
+            potential and create meaningful career paths.</p>
+
+        <div class="solutions-layout">
+            <div class="solutions-list">
+                <div class="solution">
+                    <div class="solution-icon">🎯</div>
+                    <div>
+                        <h3>Personalized Career Assessment</h3>
+                        <p>Identify your strengths, interests, and values to match you with suitable career paths and
+                            opportunities.</p>
+                    </div>
+                </div>
+                <div class="solution">
+                    <div class="solution-icon">📚</div>
+                    <div>
+                        <h3>Structured Learning Paths</h3>
+                        <p>Access curated resources, courses, and development programs tailored to your career goals and
+                            skill level.</p>
+                    </div>
+                </div>
+                <div class="solution">
+                    <div class="solution-icon">🤝</div>
+                    <div>
+                        <h3>Mentorship & Community</h3>
+                        <p>Connect with professionals and peers for guidance, networking, and collaborative learning
+                            opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="flex:1;min-width:300px;">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop"
+                    alt="Career planning teamwork">
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section id="action-plan">
+        <div style="font-size:3rem;color:#f59e0b;">💡</div>
+        <h2>Action-Oriented Planning</h2>
+        <p>Get concrete, step-by-step action plans with timelines and milestones to transform your career aspirations
+            into reality.</p>
+
+        <div class="stats-box">
+            <h3>Our Approach Works</h3>
+            <p>Thousands of individuals have transformed their careers using our structured framework.</p>
+
+            <div class="stats-grid">
+                <div><strong>92%</strong><br>Career clarity within 6 months</div>
+                <div><strong>3x</strong><br>Faster goal achievement</div>
+                <div><strong>70%</strong><br>Improved job satisfaction</div>
+                <div><strong>85%</strong><br>Skills aligned to market needs</div>
+            </div>
+            <button class="start-btn">Start Your Journey</button>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Career Roadmap Timeline -->
+    <section id="career-roadmap">
+        <h2>Career Journey Roadmap</h2>
+        <div class="timeline">
+            <div class="step">
+                <div class="circle">1</div>
+                <p>Awareness</p>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+                <div class="circle">2</div>
+                <p>Planning</p>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+                <div class="circle">3</div>
+                <p>Action</p>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+                <div class="circle">4</div>
+                <p>Growth</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Roadmap full screen me */
+        #career-roadmap {
+            width: 100vw;
+            max-width: 100%;
+            margin: 0;
+            padding: 40px 20px;
+            background: #171818;
+        }
+
+        /* Timeline flex */
+        .timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        /* Har step ko equal space do */
+        .step {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Circle styling */
+        .circle {
+            width: 50px;
+            height: 50px;
+            background: #2563eb;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+
+        /* Line jo steps ko connect kare */
+        .line {
+            flex: 1;
+            height: 4px;
+            background: #111111;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        /* Basic timeline styling (add / adapt to your existing styles) */
+        #career-roadmap {
+            padding: 24px;
+            background: #f9fafb;
+            color: #0f172a;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 20px auto;
+            font-family: Inter, system-ui, sans-serif;
+        }
+
+        #career-roadmap h2 {
+            font-size: 1.4rem;
+            margin-bottom: 12px
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px
+        }
+
+        .step .circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e6e9ee;
+            font-weight: 700
+        }
+
+        .step.completed .circle {
+            background: #4ade80;
+            color: #042014
+        }
+
+        /* completed look */
+        .line {
+            flex: 0 0 40px;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px
+        }
+
+        .info-btn {
+            margin-top: 6px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: #2563eb;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .info-btn[aria-expanded="true"] {
+            background: #1e40af
+        }
+
+        .info-box {
+            margin-top: 10px;
+            max-width: 320px;
+            text-align: left;
+            border-radius: 8px;
+            padding: 10px 12px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid #e6eef8;
+        }
+
+        .info-box h3 {
+            margin: 0 0 6px;
+            font-size: 1rem
+        }
+
+        .info-box p {
+            margin: 4px 0;
+            font-size: 0.92rem;
+            line-height: 1.3
+        }
+    </style>
+
+    <script>
+        // Toggle the Awareness info box when the button is clicked
+        (function () {
+            const btn = document.querySelector('#step-1 .info-btn');
+            const info = document.getElementById('awareness-info');
+
+            btn.addEventListener('click', () => {
+                const isVisible = !info.hasAttribute('hidden');
+                if (isVisible) {
+                    info.setAttribute('hidden', '');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    info.removeAttribute('hidden');
+                    btn.setAttribute('aria-expanded', 'true');
+                    // Optional: scroll into view for better UX on small screens
+                    info.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+
+            // Close the info box if user clicks outside (nice-to-have)
+            document.addEventListener('click', (e) => {
+                const isClickInside = document.getElementById('step-1').contains(e.target);
+                if (!isClickInside && !info.hasAttribute('hidden')) {
+                    info.setAttribute('hidden', '');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Slide 5 -->
+    <section id="career-assessment">
+        ...
+    </section>
+
+
+    <!-- Slide 5 -->
+    <section id="career-assessment">
+        <div style="font-size:3rem;color:#3b82f6;">📝</div>
+        <h2>Quick Career Assessment</h2>
+        <p>Answer a few questions to get personalized career recommendations</p>
+
+        <form class="assessment-form" id="assessmentForm">
+            <div id="assessment-container"></div>
+            <button type="submit" class="submit-btn">Get Recommendations</button>
+        </form>
+    </section>
+
+
+
+    <!-- Slide 6: Dashboard -->
+    <section id="screenshot-slide">
+        <h2>Career Dashboard Preview</h2>
+        <p>Explore resources, mentorship & tools</p>
+        <div class="dashboard-preview">
+            <div class="dash-card">
+                <h3>📘 Career Guide</h3>
+                <p>Step-by-step Guidance.</p>
+            </div>
+            <div class="dash-card">
+                <h3>🎥 Webinars</h3>
+                <p>Coming Soon.</p>
+            </div>
+            <div class="dash-card">
+                <h3>🤝 Mentorship</h3>
+                <p>One-on-one sessions with pros.</p>
+            </div>
+            <div class="dash-card">
+                <h3>📝 Resume Toolkit</h3>
+                <p>Templates for future(Coming Soon).</p>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function openModal() { document.getElementById("loginModal").style.display = "flex"; }
+        function closeModal() { document.getElementById("loginModal").style.display = "none"; }
+        window.onclick = function (event) {
+            if (event.target == document.getElementById("loginModal")) { closeModal(); }
+        }
+    </script>
+
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+
+        /* General Section */
+        section {
+            padding: 6rem 8%;
+        }
+
+
+        /* Slide 7 */
+        #transformation {
+            background: #f9fafb;
+            color: #111;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .left-box,
+        .right-box {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .left-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .left-box p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .email-box {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .email-box input {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px 0 0 8px;
+            outline: none;
+        }
+
+        .email-box button {
+            padding: 0.7rem 1.2rem;
+            background: #0f172a;
+            color: #fff;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1.2rem;
+        }
+
+        .benefits h4 {
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+        }
+
+        .benefits ul {
+            list-style: none;
+        }
+
+        .benefits ul li {
+            margin-bottom: 0.6rem;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .benefits ul li::before {
+            content: "✔";
+            color: #22c55e;
+            margin-right: 0.5rem;
+        }
+
+
+        .right-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .right-box p {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .right-box button {
+            padding: 0.7rem 1.2rem;
+            background: #0ea5e9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-option {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-option span {
+            font-size: 1.4rem;
+        }
+
+        .contact-option div {
+            font-size: 0.95rem;
+            color: #333;
+        }
+    </style>
+
+
+
+
+
+
+
+    <style>
+        /* Modal Background */
+        .modal {
+            display: none;
+            /* By default hidden */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Modal Content Box */
+        .modal-content {
+            background: #fff;
+            color: #000;
+            margin: 10% auto;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Close Button (X) */
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+
+
+
+    <style>
+        /* Career Roadmap Timeline */
+        #career-roadmap {
+            padding: 60px 20px;
+            text-align: center;
+            background: #f8fafc;
+        }
+
+        #career-roadmap h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #0f172a;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            background: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #0f172a;
+        }
+
+        .step.completed .circle {
+            background: #3b82f6;
+            /* Blue for completed */
+            color: #fff;
+        }
+
+        .line {
+            flex: 1;
+            height: 4px;
+            background: #cbd5e1;
+        }
+
+        .step p {
+            margin-top: 10px;
+            font-weight: 500;
+            color: #334155;
+        }
+    </style>
+    <style>
+        /* Roadmap Line Styling */
+        .timeline .line {
+            height: 4px;
+            background: #d1d5db;
+            /* grey by default */
+            flex: 1;
+            margin: 0 10px;
+            border-radius: 2px;
+        }
+
+        .timeline .line.active {
+            background: #3b82f6;
+            /* blue when active */
+            transition: background 1s ease-in-out;
+        }
+    </style>
+
+
+
+
+    <!-- Career Roadmap Generator -->
+    <section id="dashboard">
+        <h1 style="text-align:center;">Career Dashboard</h1>
+        <div class="cards">
+            <!-- Career Guide, Webinars, Mentorship, Resume Toolkit cards here -->
+        </div>
+    </section>
+
+
+    <section id="career-roadmap-generator">
+        <h2>Career Roadmap Generator</h2>
+        <p>Enter your details and get a personalized career journey timeline 🚀</p>
+
+        <form id="roadmapForm">
+            <label for="age">Your Age:</label>
+            <input type="number" id="age" placeholder="e.g. 20" required>
+
+            <label for="skills">Current Skills:</label>
+            <input type="text" id="skills" placeholder="e.g. Python, Design" required>
+
+            <label for="goal">Career Goal:</label>
+            <input type="text" id="goal" placeholder="e.g. Data Scientist" required>
+
+            <button type="submit">Generate Roadmap</button>
+
+
+
+
+
+
+
+
+
+
+        </form>
+
+        <style>
+            form label {
+                color: #000;
+                /* Black text labels */
+                font-weight: 600;
+                display: block;
+                margin-top: 10px;
+
+
+                h2 {
+                    text-align: center;
+
+                }
+
+            }
+        </style>
+
+
+
+
+
+
+
+        <!-- Roadmap output will appear here -->
+        <div id="roadmapResult" style="margin-top:20px;"></div>
+    </section>
+
+
+    <style>
+        #career-roadmap-generator {
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #f9fafb;
+            border-radius: 15px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #career-roadmap-generator form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        #career-roadmap-generator input,
+        #career-roadmap-generator button {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        #career-roadmap-generator button {
+            background: #3b82f6;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #career-roadmap-generator button:hover {
+            background: #2563eb;
+        }
+
+        .roadmap-output {
+            margin-top: 2rem;
+            text-align: left;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .roadmap-output p {
+            margin: 0.5rem 0;
+        }
+    </style>
+
+
+
+    <!-- Career Trends Webinar: Title & Description -->
+    <section id="career-trends" style="padding:40px 8%; background:#f8fafc; color:#0f172a;">
+        <div style="max-width:900px; margin:0 auto; text-align:center;">
+            <h2 style="font-size:2rem; margin-bottom:0.5rem;">Top 10 In-demand Skills in 2025</h2>
+            <p style="max-width:700px; margin:0.25rem auto 1.25rem; color:#475569; font-size:1rem; line-height:1.6;">
+                Learn about the most in-demand skills companies are hiring for, and how to prepare for them. Get
+                practical next steps,
+                recommended learning paths, and real-world project ideas to build the skills employers want.
+            </p>
+
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1rem;">
+                <button id="registerWebinarBtn"
+                    style="background:#3b82f6; color:white; border:none; padding:10px 18px; border-radius:8px; cursor:pointer; font-weight:600;">
+                    Register Now
+                </button>
+
+                <a href="#webinar-details"
+                    style="display:inline-block; padding:10px 18px; border-radius:8px; border:2px solid #94a3b8; color:#0f172a; text-decoration:none;">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <head>
+        <style>
+            body {
+                background-color: #000;
+                /* black background */
+                color: #fff;
+                /* white text */
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+
+
+
+
+
+    </head>
+
+    <body>
+
+
+        <!-- Slide 7: Career Transformation & Guidance -->
+        <section id="transformation">
+            <div class="left-box">
+                <h3>Start Your Career Transformation Today</h3>
+                <p>Join thousands of professionals who have taken control of their career destiny. Get personalized
+                    guidance, exclusive resources, and ongoing support.</p>
+                <div class="email-box">
+                    <input type="email" placeholder="Enter your email address">
+                    <button>Get Started →</button>
+                </div>
+                <p class="note">* No spam, unsubscribe anytime. We respect your privacy.</p>
+                <div class="benefits">
+                    <h4>What You'll Get:</h4>
+                    <ul>
+                        <li>Personalized career assessment and recommendations</li>
+                        <li>Access to exclusive career planning resources</li>
+                        <li>Monthly career insights and industry trends</li>
+                        <li>Priority access to mentorship programs</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="right-box">
+                <h3>Need Personal Guidance?</h3>
+                <p>Sometimes you need more than self-service resources. Our career counselors are here to provide
+                    one-on-one guidance tailored to your unique situation.</p>
+                <button>Schedule Free Consultation</button>
+                <div class="contact-option"><span>📧</span>
+                    <div>Email Support<br><small>support@careermirror.com</small></div>
+                </div>
+                <div class="contact-option"><span>📞</span>
+                    <div>Phone Consultation<br><small>08273-1945-85</small></div>
+                </div>
+            </div <footer style="background:#0f0f1a;color:#f5f5f5;padding:4rem 8% 2rem 8%;">
+            <div
+                style="display:flex;flex-wrap:wrap;gap:3rem;max-width:1200px;margin:auto;justify-content:space-between;">
+
+                <!-- Left Section -->
+                <div style="flex:1;min-width:220px;">
+                    <h3 style="display:flex;align-items:center;gap:0.5rem;">
+                        🎯 CareerGuide
+                    </h3>
+                    <p style="margin:1rem 0;color:#aaa;line-height:1.6;">
+                        Empowering individuals to discover their potential and build meaningful careers
+                        through accessible guidance and comprehensive planning support.
+                    </p>
+                    <!-- Social Icons -->
+                    <div style="display:flex;gap:1rem;margin-top:1rem;font-size:1.2rem;cursor:pointer;">
+                        <a href="#" style="color:#f5f5f5;text-decoration:none;">🌐</a>
+                        <a href="#" style="color:#f5f5f5;text-decoration:none;">🐦</a>
+                        <a href="#" style="color:#f5f5f5;text-decoration:none;">💼</a>
+                        <a href="#" style="color:#f5f5f5;text-decoration:none;">📸</a>
+                    </div>
+                </div>
+
+                <!-- Links Section -->
+                <div style="flex:3;display:flex;flex-wrap:wrap;gap:3rem;justify-content:flex-end;">
+
+                    <div>
+                        <h4>Resources</h4>
+                        <ul style="list-style:none;padding:0;line-height:2;">
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Career Assessment</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Planning Tools</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Industry Guides</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Resume Builder</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Interview Prep</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4>Support</h4>
+                        <ul style="list-style:none;padding:0;line-height:2;">
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Help Center</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Contact Us</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Live Chat</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Webinars</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Community Forum</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4>Company</h4>
+                        <ul style="list-style:none;padding:0;line-height:2;">
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">About Us</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Our Mission</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Success Stories</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Press</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Careers</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4>Legal</h4>
+                        <ul style="list-style:none;padding:0;line-height:2;">
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Privacy Policy</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Terms of Service</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Cookie Policy</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Refund Policy</a></li>
+                            <li><a href="#" style="color:#aaa;text-decoration:none;">Accessibility</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border:none;border-top:1px solid #333;margin:2rem 0;">
+
+            <!-- Bottom Section -->
+            <div
+                style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;">
+
+                <!-- Newsletter -->
+                <div style="flex:1;min-width:250px;margin-bottom:1rem;">
+                    <strong>Stay Updated</strong>
+                    <p style="color:#aaa;font-size:0.9rem;margin:0.5rem 0;">
+                        Get the latest career insights and opportunities delivered to your inbox.
+                    </p>
+                    <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+                        <input type="email" placeholder="Your email address"
+                            style="flex:1;padding:0.6rem;border-radius:8px;border:none;">
+                        <button style="background:#fff;color:#111;padding:0.6rem 1rem;border:none;
+                       border-radius:8px;cursor:pointer;">Subscribe</button>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div style="text-align:right;flex:1;min-width:200px;font-size:0.9rem;color:#777;">
+                    © 2024 CareerGuide. All rights reserved.
+                    <div style="margin-top:0.5rem;">
+                        <a href="#" style="color:#aaa;text-decoration:none;margin-right:1rem;">Privacy</a>
+                        <a href="#" style="color:#aaa;text-decoration:none;margin-right:1rem;">Terms</a>
+                        <a href="#" style="color:#aaa;text-decoration:none;">Cookies</a>
+                    </div>
+                </div>
+            </div>
+            </footer>
+
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const form = document.getElementById("assessmentForm");
+                    const container = document.getElementById("assessment-container");
+
+                    // 🔹 1. Fetch Questions from Backend
+                    fetch("http://localhost:5000/api/assessment")
+                        .then(res => res.json())
+                        .then(data => {
+                            container.innerHTML = "";
+                            data.forEach((q, index) => {
+                                let div = document.createElement("div");
+                                div.innerHTML = `
+          <label>${index + 1}. ${q.question}</label><br>
+          ${q.options.map(opt => `
+            <label>
+              <input type="radio" name="q${index}" value="${opt}"> ${opt}
+            </label><br>
+          `).join("")}
+        `;
+                                container.appendChild(div);
+                            });
+                        })
+                        .catch(err => console.error("Error fetching questions:", err));
+
+                    // 🔹 2. Handle Form Submit
+                    form.addEventListener("submit", (e) => {
+                        e.preventDefault();
+
+                        let answers = [];
+                        let totalQuestions = document.querySelectorAll("#assessment-container div");
+
+                        totalQuestions.forEach((qDiv, index) => {
+                            let selected = document.querySelector(`input[name="q${index}"]:checked`);
+                            if (selected) {
+                                answers.push(selected.value);
+                            }
+                        });
+
+                        fetch("http://localhost:5000/api/recommend", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(answers)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                alert("Recommendation: " + data.result);
+                            })
+                            .catch(err => console.error("Error getting recommendation:", err));
+                    });
+                });
+            </script>
+
+
+
+
+
+            <!-- 🔹 Assessment Modal -->
+            <div class="modal" id="assessmentModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeAssessment()">&times;</span>
+                    <h2>Career Assessment</h2>
+                    <div id="questionsArea"></div>
+                    <button onclick="submitAssessment()" class="btn">Submit</button>
+                </div>
+            </div>
+
+            <script>
+                // tumhara pura JS code yaha 
+                function openAssessment() {
+                    const modal = document.getElementById("assessmentModal");
+                    modal.style.display = "flex";
+
+                    // Jab modal open ho tab questions load karo
+                    fetch("http://localhost:5000/api/questions")
+                        .then(res => res.json())
+                        .then(data => {
+                            let questionsHtml = "";
+                            data.forEach((q, index) => {
+                                questionsHtml += `
+          <div class="question">
+            <p>${index + 1}. ${q.question}</p>
+            ${q.options.map(
+                                    (opt, i) => `
+              <label>
+                <input type="radio" name="q${index}" value="${opt}">
+                ${opt}
+              </label>
+            `
+                                ).join("")}
+          </div>
+        `;
+                            });
+                            document.getElementById("questionsArea").innerHTML = questionsHtml;
+                        })
+                        .catch(err => console.error("Error loading questions:", err));
+                }
+
+
+
+                // ✅ Yaha tumhara submitAssessment() function add karo
+                function submitAssessment() {
+                    let answers = [];
+                    const questions = document.querySelectorAll("#questionsArea .question");
+
+                    questions.forEach((qDiv, index) => {
+                        let selected = document.querySelector(`input[name="q${index}"]:checked`);
+                        if (selected) {
+                            answers.push(selected.value);
+                        }
+                    });
+
+                    // Backend ko bhejna
+                    fetch("http://localhost:5000/api/recommend", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(answers)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            alert("Recommendation: " + data.result);
+                            closeAssessment(); // Modal close after submit
+                        })
+                        .catch(err => console.error("Error submitting answers:", err));
+                }
+
+                function closeAssessment() {
+                    document.getElementById("assessmentModal").style.display = "none";
+                }
+            </script>
+
+
+
+            <!-- login Popup -->
+
+            <div id="loginPopup" class="popup">
+                <h2>Login</h2>
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" />
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" />
+
+                <button id="loginBtn" class="btn primary">Login</button>
+            </div>
+
+
+            <script>
+
+                document.getElementById("loginBtn").addEventListener("click", async () => {
+                    const email = document.getElementById("loginEmail").value;
+                    const password = document.getElementById("loginPassword").value;
+
+                    if (!email || !password) {
+                        alert("Please fill all fields");
+                        return;
+                    }
+
+                    try {
+                        const res = await fetch("http://127.0.0.1:5000/login", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ email, password }),
+                        });
+
+                        const data = await res.json();
+
+                        if (res.ok) {
+                            alert("✅ Login successful: " + data.message);
+                            // Example: redirect to dashboard
+                            window.location.href = "dashboard.html";
+                        } else {
+                            alert("❌ Error: " + data.message);
+                        }
+                    } catch (error) {
+                        console.error("Error:", error);
+                        alert("Server not responding");
+                    }
+                });
+
+            </script>
+
+
+
+            <!-- Signup Popup -->
+            <div id="signupModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeSignup()">&times;</span>
+                    <h2>Sign Up</h2>
+                    <form id="signupForm">
+                        <label>Name:</label>
+                        <input type="text" id="signupName" required><br><br>
+                        <label>Email:</label>
+                        <input type="email" id="signupEmail" required><br><br>
+                        <label>Password:</label>
+                        <input type="password" id="signupPassword" required><br><br>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+            <script>
+                function openSignup() {
+                    document.getElementById("signupModal").style.display = "block";
+                }
+
+                function closeSignup() {
+                    document.getElementById("signupModal").style.display = "none";
+                }
+
+            </script>
+
+
+
+            <!-- Learn More Popup -->
+            <div id="learnMorePopup" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeLearn">&times;</span>
+                    <h2>Why Career Planning?</h2>
+                    <p>Career planning helps you identify your strengths, explore opportunities, and make informed
+                        decisions about your future.</p>
+                    <ul>
+                        <li>✔ Discover strengths & interests</li>
+                        <li>✔ Explore career opportunities</li>
+                        <li>✔ Build step-by-step action plan</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <style>
+                .modal {
+                    display: none;
+                    /* hidden by default */
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.6);
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2000;
+                }
+
+                .modal.open {
+                    display: flex;
+                    /* when open class added */
+                }
+
+                .modal-content {
+                    background: #1e293b;
+                    padding: 20px;
+                    border-radius: 12px;
+                    width: 350px;
+                    color: white;
+                    text-align: left;
+                    position: relative;
+                    animation: fadeIn 0.3s ease;
+                }
+
+                .modal-content h2 {
+                    margin-bottom: 10px;
+                    color: #38bdf8;
+                }
+
+                .modal-content ul {
+                    margin-top: 10px;
+                    padding-left: 20px;
+                }
+
+                .close {
+                    position: absolute;
+                    top: 10px;
+                    right: 15px;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    color: #fff;
+                }
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: scale(0.9);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            </style>
+
+
+
+
+            <script>
+                // Get elements
+                const learnMoreBtn = document.querySelector(".btn.secondary"); // Learn More button
+                const learnMorePopup = document.getElementById("learnMorePopup");
+                const closeLearn = document.getElementById("closeLearn");
+
+                // Open popup on button click
+                learnMoreBtn.addEventListener("click", () => {
+                    learnMorePopup.classList.add("open");
+                });
+
+                // Close popup on X button
+                closeLearn.addEventListener("click", () => {
+                    learnMorePopup.classList.remove("open");
+                });
+
+                // Close popup when clicking outside modal content
+                window.addEventListener("click", (e) => {
+                    if (e.target === learnMorePopup) {
+                        learnMorePopup.classList.remove("open");
+                    }
+                });
+            </script>
+
+
+
+            <script>
+                // Animate roadmap when it comes in view
+                const roadmap = document.getElementById("career-roadmap");
+                const lines = document.querySelectorAll(".line");
+
+                window.addEventListener("scroll", () => {
+                    const rect = roadmap.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        lines.forEach((line, index) => {
+                            setTimeout(() => line.classList.add("active"), index * 500);
+                        });
+                    }
+                });
+            </script>
+
+
+
+
+            <script>
+                document.getElementById("roadmapForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const age = document.getElementById("age").value;
+                    const skills = document.getElementById("skills").value;
+                    const goal = document.getElementById("goal").value;
+
+                    const roadmapDiv = document.getElementById("roadmapResult");
+
+                    roadmapDiv.innerHTML = `
+      <h3>Your Personalized Roadmap</h3>
+      <p><strong>0–6 months:</strong> Learn key skills for ${goal} (focus on ${skills})</p>
+      <p><strong>6–12 months:</strong> Build projects, join internships, create portfolio</p>
+      <p><strong>12–24 months:</strong> Apply for jobs in ${goal}, network with professionals</p>
+      <p><strong>Beyond 2 years:</strong> Aim for advanced roles, certifications, leadership growth 🚀</p>
+    `;
+                });
+            </script>
+
+
+
+            <form id="roadmapForm">
+                <label for="age">Your Age:</label>
+                <input type="number" id="age" required>
+
+                <label for="skills">Current Skills:</label>
+                <input type="text" id="skills" required>
+
+                <label for="goal">Career Goal:</label>
+                <input type="text" id="goal" required>
+
+                <button type="submit">Generate Roadmap</button>
+            </form>
+
+            <div id="roadmapResult"></div>
+
+
+
+
+
+
+            <script>
+                document.getElementById("registerWebinarBtn")?.addEventListener("click", function () {
+                    alert("Thanks — you are registered for the webinar! We'll email details soon.");
+                    // Later: call backend API to save registration
+                });
+            </script>
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    document.getElementById("roadmapForm").addEventListener("submit", function (e) {
+                        e.preventDefault();
+
+                        const age = document.getElementById("age").value;
+                        const skills = document.getElementById("skills").value;
+                        const goal = document.getElementById("goal").value;
+
+                        const roadmapDiv = document.getElementById("roadmapResult");
+
+                        roadmapDiv.innerHTML = `
+      <h3>Your Personalized Roadmap</h3>
+      <p><strong>0–6 months:</strong> Learn ${skills} deeply for ${goal}</p>
+      <p><strong>6–12 months:</strong> Do internships/projects & build portfolio</p>
+      <p><strong>12–24 months:</strong> Apply for jobs in ${goal}, network with pros</p>
+      <p><strong>2+ years:</strong> Target leadership/advanced roles 🚀</p>
+    `;
+                    });
+                });
+            </script>
+
+
+
+    </body>
+
+</html>
